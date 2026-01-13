@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Task Output</title>
+<style>
+body {
+  background:#0f172a; color:white;
+  font-family: monospace; padding:30px;
+}
+.box {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+
+a { color:#38bdf8; display:block; margin-top:20px; }
+</style>
+</head>
+
+<body>
+
+<h2>Task Output</h2>
+<div class="box" id="out"></div>
+<a href="index.html">⬅ Back</a>
+
+<script>
+const p=new URLSearchParams(location.search);
+const t=p.get("task"); let r="";
+
+if(t=="string") r=p.get("value").split("").reverse().join("");
+else if(t=="palindrome"){
+ let w=p.get("value");
+ r=(w===w.split("").reverse().join(""))?"Palindrome":"Not Palindrome";
+}
+else if(t=="fibonacci"){
+ let n=+p.get("value"),a=0,b=1,s=[];
+ for(let i=0;i<n;i++){s.push(a);[a,b]=[b,a+b];}
+ r=s.join(", ");
+}
+else if(t=="password"){
+ let pwd=p.get("value"),sc=0;
+ if(pwd.length>=8)sc++;
+ if(/[A-Z]/.test(pwd))sc++;
+ if(/[a-z]/.test(pwd))sc++;
+ if(/[0-9]/.test(pwd))sc++;
+ if(/[@#$%!]/.test(pwd))sc++;
+ r=sc>=4?"Strong":sc>=2?"Medium":"Weak";
+}
+else if(t=="calc"){
+ let a=+p.get("a"),b=+p.get("b"),o=p.get("op");
+ r=o=="+"?a+b:o=="-"?a-b:o=="*"?
+ a*b:o=="/"? (b? a/b:"Division by zero"):a%b;
+}
+else if(t=="guess") r="Guessing Game logic executed (demo)";
+else if(t=="scraper") r="Scraped titles from website (demo output)";
+else if(t=="automation") r="Files organized successfully (demo)";
+
+document.getElementById("out").innerText=r;
+</script>
+
+</body>
+</html>

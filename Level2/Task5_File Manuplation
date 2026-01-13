@@ -1,0 +1,17 @@
+def count_words(filename):
+    word_count = {}
+
+    with open(filename, 'r') as file:
+        for line in file:
+            words = line.lower().replace('.', '').replace(',', '').split()
+            for word in words:
+                word_count[word] = word_count.get(word, 0) + 1
+
+    # Display in alphabetical order
+    for word in sorted(word_count):
+        print(f"{word}: {word_count[word]}")
+
+
+# Correct file path
+file_name = "Level2/sample.txt"
+count_words(file_name)

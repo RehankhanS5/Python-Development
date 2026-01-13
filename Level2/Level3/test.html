@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- STABLE PyScript (DO NOT use 'latest') -->
+  <link rel="stylesheet" href="https://pyscript.net/2023.11.1/pyscript.css" />
+  <script defer src="https://pyscript.net/2023.11.1/pyscript.js"></script>
+
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+      padding: 30px;
+    }
+    pre {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>PyScript Test</h2>
+
+<pre id="out"></pre>
+
+<py-script output="out">
+print("PyScript is RUNNING ✅")
+print("Fibonacci Output:")
+
+a, b = 0, 1
+for _ in range(7):
+    print(a)
+    a, b = b, a + b
+</py-script>
+
+</body>
+</html>

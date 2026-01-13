@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Data Visualization</title>
+
+<!-- Chart.js CDN (STABLE) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<style>
+body {
+  background: #0f172a;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+canvas {
+  background: #020617;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+a {
+  color: #38bdf8;
+  display: inline-block;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>📊 Sales Data Visualization</h2>
+
+  <!-- IMPORTANT: Give canvas explicit size -->
+  <canvas id="myChart" width="700" height="400"></canvas>
+
+  <a href="index.html">⬅ Back to Dashboard</a>
+</div>
+
+<script>
+/* WAIT until page & canvas is fully loaded */
+window.onload = function () {
+
+  const ctx = document.getElementById("myChart").getContext("2d");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["2019", "2020", "2021", "2022", "2023"],
+      datasets: [{
+        label: "Sales",
+        data: [200, 350, 500, 550, 700],
+        borderColor: "#38bdf8",
+        backgroundColor: "rgba(56,189,248,0.2)",
+        borderWidth: 2,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: false,
+      plugins: {
+        legend: {
+          labels: { color: "white" }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: "white" }
+        },
+        y: {
+          ticks: { color: "white" }
+        }
+      }
+    }
+  });
+
+};
+</script>
+
+</body>
+</html>
+
