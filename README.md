@@ -1,9 +1,6 @@
 # Python Development Internship 
-
-👤 **Rehan Khan**  
-🧑‍💻 Python Development Intern  
-
-This repository contains all tasks completed during my **Python Development **, organized level-wise.
+   
+   This repository contains all tasks completed during my **Python Development **, organized level-wise.
 
 ---
 
